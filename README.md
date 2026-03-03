@@ -1,6 +1,7 @@
 # EcoReport AI
 
-> **Production-grade macroeconomic forecasting and automated report generation.**  
+> **Production-grade macroeconomic forecasting and automated report generation.**
+> Implements recursive multi-step forecasting, HAC-robust OLS estimation, rolling-origin cross-validation, and reproducible evidence tracking.
 > Combines classical econometrics, machine learning, and deep learning with constrained generative AI — running end-to-end without any API keys.
 
 [![Python 3.11+](https://img.shields.io/badge/python-3.11%2B-blue.svg)](https://python.org)
@@ -10,7 +11,7 @@
 
 ---
 
-## Example Output
+## Example Output (Automatically Generated)
 
 ### 📈 Forecast
 ![Forecast Example](assets/forecast_example.png)
@@ -98,6 +99,7 @@ pip install -e ".[dev]"
 ```
 
 ### Run Without Any API Keys (uses sample data)
+> Sample mode uses a synthetic macroeconomic dataset to ensure full offline reproducibility.
 ```bash
 python -m eco_report_ai run --data-source sample
 ```
@@ -201,7 +203,7 @@ models:
 
 | Model | Library | Key Features |
 |-------|---------|-------------|
-| OLS + HAC | `statsmodels` | Interpretable coefficients; Newey-West robust errors |
+| OLS + HAC | `statsmodels` | Interpretable coefficients; Newey-West robust errors; residual diagnostics |
 | ARIMA/SARIMAX | `statsmodels` | AIC grid search; ADF stationarity test; CI forecast |
 | Gradient Boosting | `scikit-learn` | RandomizedSearchCV; TimeSeriesSplit; feature importances |
 | LSTM | `PyTorch` | 2-layer; early stopping; deterministic seeds; GPU support |
