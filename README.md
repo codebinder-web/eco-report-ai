@@ -1,1 +1,2 @@
-"# ai-soc-anomaly-platform" 
+<!-- Placeholder content -->
+
