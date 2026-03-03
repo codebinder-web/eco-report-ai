@@ -1,2 +1,0 @@
-[console_scripts]
-eco-report-ai = eco_report_ai.cli:cli
