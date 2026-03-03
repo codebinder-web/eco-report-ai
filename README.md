@@ -10,6 +10,17 @@
 
 ---
 
+## Example Output
+
+### 📈 Forecast
+![Forecast Example](assets/forecast_example.png)
+
+### 📊 Historical Series
+![Historical Series](assets/historical_series.png)
+
+### 🤖 Model Comparison
+![Model Comparison](assets/model_comparison.png)
+
 ## What is EcoReport AI?
 
 EcoReport AI is a fully automated pipeline that:

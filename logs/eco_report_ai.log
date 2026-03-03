@@ -634,3 +634,109 @@
 {"timestamp": "2026-03-02T23:47:28.415169+00:00", "level": "INFO", "logger": "eco_report_ai.pipeline", "message": "  Report : reports\\latest_report.md"}
 {"timestamp": "2026-03-02T23:47:28.415365+00:00", "level": "INFO", "logger": "eco_report_ai.pipeline", "message": "  JSON   : reports\\latest_report.json"}
 {"timestamp": "2026-03-02T23:47:28.415557+00:00", "level": "INFO", "logger": "eco_report_ai.pipeline", "message": "============================================================"}
+{"timestamp": "2026-03-03T10:32:24.822585+00:00", "level": "INFO", "logger": "eco_report_ai.config", "message": "Config loaded from config.yaml (hash=58f083e2)"}
+{"timestamp": "2026-03-03T10:32:29.139081+00:00", "level": "INFO", "logger": "eco_report_ai.pipeline", "message": "Pipeline initialized (run_id=d23cfd05, seed=42)"}
+{"timestamp": "2026-03-03T10:32:29.139531+00:00", "level": "INFO", "logger": "eco_report_ai.pipeline", "message": "============================================================"}
+{"timestamp": "2026-03-03T10:32:29.139932+00:00", "level": "INFO", "logger": "eco_report_ai.pipeline", "message": "EcoReport AI Pipeline \u2014 run_id=d23cfd05"}
+{"timestamp": "2026-03-03T10:32:29.140414+00:00", "level": "INFO", "logger": "eco_report_ai.pipeline", "message": "============================================================"}
+{"timestamp": "2026-03-03T10:32:29.140778+00:00", "level": "INFO", "logger": "eco_report_ai.pipeline", "message": "Step 1/6: Loading data ..."}
+{"timestamp": "2026-03-03T10:32:29.158242+00:00", "level": "INFO", "logger": "eco_report_ai.data.loaders", "message": "Loaded sample CSV: 288 rows from data\\sample_macro.csv"}
+{"timestamp": "2026-03-03T10:32:29.179347+00:00", "level": "INFO", "logger": "eco_report_ai.data.schema", "message": "Schema validation passed: 288 rows, 3 columns."}
+{"timestamp": "2026-03-03T10:32:29.181062+00:00", "level": "INFO", "logger": "eco_report_ai.pipeline", "message": "Data loaded: 288 rows (2000-01 to 2023-12), source=sample_csv"}
+{"timestamp": "2026-03-03T10:32:29.181398+00:00", "level": "INFO", "logger": "eco_report_ai.pipeline", "message": "Step 2/6: Building features ..."}
+{"timestamp": "2026-03-03T10:32:29.183093+00:00", "level": "INFO", "logger": "eco_report_ai.features.build_features", "message": "Computed CPI YoY target variable."}
+{"timestamp": "2026-03-03T10:32:29.192245+00:00", "level": "INFO", "logger": "eco_report_ai.features.build_features", "message": "Added lags 1..6 for ['cpi_yoy', 'fedfunds', 'unrate']."}
+{"timestamp": "2026-03-03T10:32:29.203783+00:00", "level": "INFO", "logger": "eco_report_ai.features.build_features", "message": "Added rolling stats with windows [3, 6, 12]."}
+{"timestamp": "2026-03-03T10:32:29.208708+00:00", "level": "INFO", "logger": "eco_report_ai.features.build_features", "message": "Dropped 13 rows with NaN in required columns."}
+{"timestamp": "2026-03-03T10:32:29.209364+00:00", "level": "INFO", "logger": "eco_report_ai.features.build_features", "message": "Feature matrix built: 275 rows \u00d7 43 columns."}
+{"timestamp": "2026-03-03T10:32:29.213160+00:00", "level": "INFO", "logger": "eco_report_ai.pipeline", "message": "Features: 275 rows \u00d7 42 columns"}
+{"timestamp": "2026-03-03T10:32:29.213519+00:00", "level": "INFO", "logger": "eco_report_ai.pipeline", "message": "Step 3/6: Fitting and backtesting models ..."}
+{"timestamp": "2026-03-03T10:32:29.213801+00:00", "level": "INFO", "logger": "eco_report_ai.evaluation.backtesting", "message": "Backtesting OLS ..."}
+{"timestamp": "2026-03-03T10:32:29.215636+00:00", "level": "INFO", "logger": "eco_report_ai.evaluation.backtesting", "message": "Generated 5 rolling-origin folds (horizon=6)."}
+{"timestamp": "2026-03-03T10:32:29.415242+00:00", "level": "INFO", "logger": "eco_report_ai.models.econometrics", "message": "OLS fitted: R\u00b2=0.9924, adj-R\u00b2=0.9923, n=240, HAC=yes (lags=6)"}
+{"timestamp": "2026-03-03T10:32:29.422692+00:00", "level": "INFO", "logger": "eco_report_ai.evaluation.backtesting", "message": "Fold 0 \u2014 MAE=0.1534 RMSE=0.1854 MAPE=6.65%"}
+{"timestamp": "2026-03-03T10:32:29.437478+00:00", "level": "INFO", "logger": "eco_report_ai.models.econometrics", "message": "OLS fitted: R\u00b2=0.9923, adj-R\u00b2=0.9921, n=246, HAC=yes (lags=6)"}
+{"timestamp": "2026-03-03T10:32:29.446334+00:00", "level": "INFO", "logger": "eco_report_ai.evaluation.backtesting", "message": "Fold 1 \u2014 MAE=0.1223 RMSE=0.1495 MAPE=5.69%"}
+{"timestamp": "2026-03-03T10:32:29.463618+00:00", "level": "INFO", "logger": "eco_report_ai.models.econometrics", "message": "OLS fitted: R\u00b2=0.9922, adj-R\u00b2=0.9920, n=252, HAC=yes (lags=6)"}
+{"timestamp": "2026-03-03T10:32:29.471444+00:00", "level": "INFO", "logger": "eco_report_ai.evaluation.backtesting", "message": "Fold 2 \u2014 MAE=0.1587 RMSE=0.1729 MAPE=5.98%"}
+{"timestamp": "2026-03-03T10:32:29.486197+00:00", "level": "INFO", "logger": "eco_report_ai.models.econometrics", "message": "OLS fitted: R\u00b2=0.9920, adj-R\u00b2=0.9919, n=258, HAC=yes (lags=6)"}
+{"timestamp": "2026-03-03T10:32:29.495373+00:00", "level": "INFO", "logger": "eco_report_ai.evaluation.backtesting", "message": "Fold 3 \u2014 MAE=0.1316 RMSE=0.1655 MAPE=4.98%"}
+{"timestamp": "2026-03-03T10:32:29.512748+00:00", "level": "INFO", "logger": "eco_report_ai.models.econometrics", "message": "OLS fitted: R\u00b2=0.9918, adj-R\u00b2=0.9917, n=264, HAC=yes (lags=6)"}
+{"timestamp": "2026-03-03T10:32:29.521356+00:00", "level": "INFO", "logger": "eco_report_ai.evaluation.backtesting", "message": "Fold 4 \u2014 MAE=0.1070 RMSE=0.1243 MAPE=4.32%"}
+{"timestamp": "2026-03-03T10:32:29.522117+00:00", "level": "INFO", "logger": "eco_report_ai.evaluation.backtesting", "message": "OLS backtest complete \u2014 mean RMSE=0.1595 \u00b1 0.0211"}
+{"timestamp": "2026-03-03T10:32:29.535511+00:00", "level": "INFO", "logger": "eco_report_ai.models.econometrics", "message": "OLS fitted: R\u00b2=0.9918, adj-R\u00b2=0.9917, n=270, HAC=yes (lags=6)"}
+{"timestamp": "2026-03-03T10:32:29.535874+00:00", "level": "INFO", "logger": "eco_report_ai.evaluation.backtesting", "message": "Backtesting ARIMA ..."}
+{"timestamp": "2026-03-03T10:32:29.538214+00:00", "level": "INFO", "logger": "eco_report_ai.evaluation.backtesting", "message": "Generated 5 rolling-origin folds (horizon=6)."}
+{"timestamp": "2026-03-03T10:32:30.489343+00:00", "level": "INFO", "logger": "eco_report_ai.models.econometrics", "message": "ADF test p-value=0.2016 -> d=1"}
+{"timestamp": "2026-03-03T10:32:32.127700+00:00", "level": "INFO", "logger": "eco_report_ai.models.econometrics", "message": "ARIMA(3,1,2) selected: AIC=-176.42 BIC=-155.56"}
+{"timestamp": "2026-03-03T10:32:32.144191+00:00", "level": "INFO", "logger": "eco_report_ai.evaluation.backtesting", "message": "Fold 0 \u2014 MAE=0.3422 RMSE=0.3747 MAPE=15.14%"}
+{"timestamp": "2026-03-03T10:32:32.156490+00:00", "level": "INFO", "logger": "eco_report_ai.models.econometrics", "message": "ADF test p-value=0.1800 -> d=1"}
+{"timestamp": "2026-03-03T10:32:34.039967+00:00", "level": "INFO", "logger": "eco_report_ai.models.econometrics", "message": "ARIMA(2,1,2) selected: AIC=-181.11 BIC=-163.60"}
+{"timestamp": "2026-03-03T10:32:34.054156+00:00", "level": "INFO", "logger": "eco_report_ai.evaluation.backtesting", "message": "Fold 1 \u2014 MAE=0.2571 RMSE=0.2612 MAPE=12.01%"}
+{"timestamp": "2026-03-03T10:32:34.070768+00:00", "level": "INFO", "logger": "eco_report_ai.models.econometrics", "message": "ADF test p-value=0.1664 -> d=1"}
+{"timestamp": "2026-03-03T10:32:35.665157+00:00", "level": "INFO", "logger": "eco_report_ai.models.econometrics", "message": "ARIMA(3,1,2) selected: AIC=-188.20 BIC=-167.05"}
+{"timestamp": "2026-03-03T10:32:35.691916+00:00", "level": "INFO", "logger": "eco_report_ai.evaluation.backtesting", "message": "Fold 2 \u2014 MAE=0.2135 RMSE=0.2379 MAPE=7.92%"}
+{"timestamp": "2026-03-03T10:32:35.716395+00:00", "level": "INFO", "logger": "eco_report_ai.models.econometrics", "message": "ADF test p-value=0.1680 -> d=1"}
+{"timestamp": "2026-03-03T10:32:37.445689+00:00", "level": "INFO", "logger": "eco_report_ai.models.econometrics", "message": "ARIMA(2,1,2) selected: AIC=-192.43 BIC=-174.69"}
+{"timestamp": "2026-03-03T10:32:37.455514+00:00", "level": "INFO", "logger": "eco_report_ai.evaluation.backtesting", "message": "Fold 3 \u2014 MAE=0.1996 RMSE=0.2385 MAPE=7.94%"}
+{"timestamp": "2026-03-03T10:32:37.468368+00:00", "level": "INFO", "logger": "eco_report_ai.models.econometrics", "message": "ADF test p-value=0.1433 -> d=1"}
+{"timestamp": "2026-03-03T10:32:39.341548+00:00", "level": "INFO", "logger": "eco_report_ai.models.econometrics", "message": "ARIMA(3,1,2) selected: AIC=-198.90 BIC=-177.47"}
+{"timestamp": "2026-03-03T10:32:39.354895+00:00", "level": "INFO", "logger": "eco_report_ai.evaluation.backtesting", "message": "Fold 4 \u2014 MAE=0.4377 RMSE=0.4833 MAPE=17.99%"}
+{"timestamp": "2026-03-03T10:32:39.355563+00:00", "level": "INFO", "logger": "eco_report_ai.evaluation.backtesting", "message": "ARIMA backtest complete \u2014 mean RMSE=0.3191 \u00b1 0.0964"}
+{"timestamp": "2026-03-03T10:32:39.368329+00:00", "level": "INFO", "logger": "eco_report_ai.models.econometrics", "message": "ADF test p-value=0.1423 -> d=1"}
+{"timestamp": "2026-03-03T10:32:40.894383+00:00", "level": "INFO", "logger": "eco_report_ai.models.econometrics", "message": "ARIMA(3,1,2) selected: AIC=-210.96 BIC=-189.28"}
+{"timestamp": "2026-03-03T10:32:40.894809+00:00", "level": "INFO", "logger": "eco_report_ai.evaluation.backtesting", "message": "Backtesting GradientBoosting ..."}
+{"timestamp": "2026-03-03T10:32:40.897076+00:00", "level": "INFO", "logger": "eco_report_ai.evaluation.backtesting", "message": "Generated 5 rolling-origin folds (horizon=6)."}
+{"timestamp": "2026-03-03T10:33:08.757403+00:00", "level": "INFO", "logger": "eco_report_ai.models.ml_baselines", "message": "GradientBoosting fitted: best_params={'subsample': 0.8, 'n_estimators': 500, 'min_samples_leaf': 1, 'max_depth': 4, 'learning_rate': 0.1}, best_neg_RMSE=2.1391"}
+{"timestamp": "2026-03-03T10:33:08.772941+00:00", "level": "INFO", "logger": "eco_report_ai.evaluation.backtesting", "message": "Fold 0 \u2014 MAE=0.1908 RMSE=0.2115 MAPE=8.19%"}
+{"timestamp": "2026-03-03T10:33:22.104534+00:00", "level": "INFO", "logger": "eco_report_ai.models.ml_baselines", "message": "GradientBoosting fitted: best_params={'subsample': 1.0, 'n_estimators': 300, 'min_samples_leaf': 1, 'max_depth': 5, 'learning_rate': 0.1}, best_neg_RMSE=2.1219"}
+{"timestamp": "2026-03-03T10:33:22.107593+00:00", "level": "INFO", "logger": "eco_report_ai.evaluation.backtesting", "message": "Fold 1 \u2014 MAE=0.1432 RMSE=0.1625 MAPE=6.70%"}
+{"timestamp": "2026-03-03T10:33:34.722832+00:00", "level": "INFO", "logger": "eco_report_ai.models.ml_baselines", "message": "GradientBoosting fitted: best_params={'subsample': 0.8, 'n_estimators': 500, 'min_samples_leaf': 4, 'max_depth': 3, 'learning_rate': 0.1}, best_neg_RMSE=2.0942"}
+{"timestamp": "2026-03-03T10:33:34.724905+00:00", "level": "INFO", "logger": "eco_report_ai.evaluation.backtesting", "message": "Fold 2 \u2014 MAE=0.1889 RMSE=0.2052 MAPE=7.13%"}
+{"timestamp": "2026-03-03T10:33:48.655900+00:00", "level": "INFO", "logger": "eco_report_ai.models.ml_baselines", "message": "GradientBoosting fitted: best_params={'subsample': 0.9, 'n_estimators': 300, 'min_samples_leaf': 4, 'max_depth': 3, 'learning_rate': 0.1}, best_neg_RMSE=2.0551"}
+{"timestamp": "2026-03-03T10:33:48.658194+00:00", "level": "INFO", "logger": "eco_report_ai.evaluation.backtesting", "message": "Fold 3 \u2014 MAE=0.1218 RMSE=0.1561 MAPE=4.62%"}
+{"timestamp": "2026-03-03T10:34:03.429625+00:00", "level": "INFO", "logger": "eco_report_ai.models.ml_baselines", "message": "GradientBoosting fitted: best_params={'subsample': 0.9, 'n_estimators': 500, 'min_samples_leaf': 2, 'max_depth': 5, 'learning_rate': 0.1}, best_neg_RMSE=2.0125"}
+{"timestamp": "2026-03-03T10:34:03.432866+00:00", "level": "INFO", "logger": "eco_report_ai.evaluation.backtesting", "message": "Fold 4 \u2014 MAE=0.1061 RMSE=0.1214 MAPE=4.35%"}
+{"timestamp": "2026-03-03T10:34:03.433596+00:00", "level": "INFO", "logger": "eco_report_ai.evaluation.backtesting", "message": "GradientBoosting backtest complete \u2014 mean RMSE=0.1714 \u00b1 0.0333"}
+{"timestamp": "2026-03-03T10:34:16.789933+00:00", "level": "INFO", "logger": "eco_report_ai.models.ml_baselines", "message": "GradientBoosting fitted: best_params={'subsample': 0.8, 'n_estimators': 500, 'min_samples_leaf': 1, 'max_depth': 2, 'learning_rate': 0.1}, best_neg_RMSE=2.0193"}
+{"timestamp": "2026-03-03T10:34:16.790523+00:00", "level": "INFO", "logger": "eco_report_ai.evaluation.backtesting", "message": "Backtesting LSTM ..."}
+{"timestamp": "2026-03-03T10:34:16.792886+00:00", "level": "INFO", "logger": "eco_report_ai.evaluation.backtesting", "message": "Generated 5 rolling-origin folds (horizon=6)."}
+{"timestamp": "2026-03-03T10:34:16.798287+00:00", "level": "INFO", "logger": "eco_report_ai.models.lstm", "message": "LSTM training on device: cpu"}
+{"timestamp": "2026-03-03T10:34:20.369441+00:00", "level": "INFO", "logger": "eco_report_ai.models.lstm", "message": "LSTM early stopping at epoch 10 (val_loss=0.004721)."}
+{"timestamp": "2026-03-03T10:34:20.381083+00:00", "level": "INFO", "logger": "eco_report_ai.models.lstm", "message": "LSTM fitted: 11 epochs, best_val_loss=0.002545, features=42"}
+{"timestamp": "2026-03-03T10:34:20.393100+00:00", "level": "INFO", "logger": "eco_report_ai.evaluation.backtesting", "message": "Fold 0 \u2014 MAE=0.4780 RMSE=0.5558 MAPE=21.37%"}
+{"timestamp": "2026-03-03T10:34:20.451515+00:00", "level": "INFO", "logger": "eco_report_ai.models.lstm", "message": "LSTM training on device: cpu"}
+{"timestamp": "2026-03-03T10:34:22.214653+00:00", "level": "INFO", "logger": "eco_report_ai.models.lstm", "message": "LSTM early stopping at epoch 20 (val_loss=0.004969)."}
+{"timestamp": "2026-03-03T10:34:22.215412+00:00", "level": "INFO", "logger": "eco_report_ai.models.lstm", "message": "LSTM fitted: 21 epochs, best_val_loss=0.001527, features=42"}
+{"timestamp": "2026-03-03T10:34:22.224380+00:00", "level": "INFO", "logger": "eco_report_ai.evaluation.backtesting", "message": "Fold 1 \u2014 MAE=0.1355 RMSE=0.1636 MAPE=6.15%"}
+{"timestamp": "2026-03-03T10:34:22.232682+00:00", "level": "INFO", "logger": "eco_report_ai.models.lstm", "message": "LSTM training on device: cpu"}
+{"timestamp": "2026-03-03T10:34:23.762702+00:00", "level": "INFO", "logger": "eco_report_ai.models.lstm", "message": "LSTM early stopping at epoch 22 (val_loss=0.004408)."}
+{"timestamp": "2026-03-03T10:34:23.763506+00:00", "level": "INFO", "logger": "eco_report_ai.models.lstm", "message": "LSTM fitted: 23 epochs, best_val_loss=0.001264, features=42"}
+{"timestamp": "2026-03-03T10:34:23.771123+00:00", "level": "INFO", "logger": "eco_report_ai.evaluation.backtesting", "message": "Fold 2 \u2014 MAE=0.5925 RMSE=0.6295 MAPE=22.09%"}
+{"timestamp": "2026-03-03T10:34:23.777792+00:00", "level": "INFO", "logger": "eco_report_ai.models.lstm", "message": "LSTM training on device: cpu"}
+{"timestamp": "2026-03-03T10:34:25.238378+00:00", "level": "INFO", "logger": "eco_report_ai.models.lstm", "message": "LSTM early stopping at epoch 21 (val_loss=0.012301)."}
+{"timestamp": "2026-03-03T10:34:25.239104+00:00", "level": "INFO", "logger": "eco_report_ai.models.lstm", "message": "LSTM fitted: 22 epochs, best_val_loss=0.001588, features=42"}
+{"timestamp": "2026-03-03T10:34:25.246618+00:00", "level": "INFO", "logger": "eco_report_ai.evaluation.backtesting", "message": "Fold 3 \u2014 MAE=0.2815 RMSE=0.3001 MAPE=10.73%"}
+{"timestamp": "2026-03-03T10:34:25.254787+00:00", "level": "INFO", "logger": "eco_report_ai.models.lstm", "message": "LSTM training on device: cpu"}
+{"timestamp": "2026-03-03T10:34:26.126902+00:00", "level": "INFO", "logger": "eco_report_ai.models.lstm", "message": "LSTM early stopping at epoch 12 (val_loss=0.002393)."}
+{"timestamp": "2026-03-03T10:34:26.127939+00:00", "level": "INFO", "logger": "eco_report_ai.models.lstm", "message": "LSTM fitted: 13 epochs, best_val_loss=0.001912, features=42"}
+{"timestamp": "2026-03-03T10:34:26.137244+00:00", "level": "INFO", "logger": "eco_report_ai.evaluation.backtesting", "message": "Fold 4 \u2014 MAE=0.1860 RMSE=0.1920 MAPE=7.46%"}
+{"timestamp": "2026-03-03T10:34:26.138715+00:00", "level": "INFO", "logger": "eco_report_ai.evaluation.backtesting", "message": "LSTM backtest complete \u2014 mean RMSE=0.3682 \u00b1 0.1903"}
+{"timestamp": "2026-03-03T10:34:26.143517+00:00", "level": "INFO", "logger": "eco_report_ai.models.lstm", "message": "LSTM training on device: cpu"}
+{"timestamp": "2026-03-03T10:34:27.623401+00:00", "level": "INFO", "logger": "eco_report_ai.models.lstm", "message": "LSTM early stopping at epoch 21 (val_loss=0.007392)."}
+{"timestamp": "2026-03-03T10:34:27.624122+00:00", "level": "INFO", "logger": "eco_report_ai.models.lstm", "message": "LSTM fitted: 22 epochs, best_val_loss=0.001235, features=42"}
+{"timestamp": "2026-03-03T10:34:27.625016+00:00", "level": "INFO", "logger": "eco_report_ai.pipeline", "message": "Step 4/6: Selecting best model ..."}
+{"timestamp": "2026-03-03T10:34:27.625412+00:00", "level": "INFO", "logger": "eco_report_ai.models.model_selection", "message": "Best model: OLS (mean RMSE=0.1595, MAE=0.1346, MAPE=5.52%)"}
+{"timestamp": "2026-03-03T10:34:27.625731+00:00", "level": "INFO", "logger": "eco_report_ai.pipeline", "message": "Step 5/6: Generating final forecast ..."}
+{"timestamp": "2026-03-03T10:34:27.815926+00:00", "level": "INFO", "logger": "eco_report_ai.pipeline", "message": "Step 6/6: Building evidence store and writing report ..."}
+{"timestamp": "2026-03-03T10:34:29.798154+00:00", "level": "INFO", "logger": "eco_report_ai.reporting.charts", "message": "Saved historical series chart: reports\\figures\\historical_series.png"}
+{"timestamp": "2026-03-03T10:34:30.148757+00:00", "level": "INFO", "logger": "eco_report_ai.reporting.charts", "message": "Saved forecast chart: reports\\figures\\forecast_plot.png"}
+{"timestamp": "2026-03-03T10:34:31.002205+00:00", "level": "INFO", "logger": "eco_report_ai.reporting.charts", "message": "Saved model comparison chart: reports\\figures\\model_comparison.png"}
+{"timestamp": "2026-03-03T10:34:31.002939+00:00", "level": "INFO", "logger": "eco_report_ai.reporting.nlg", "message": "Using deterministic template NLG (OPENAI_API_KEY not set)."}
+{"timestamp": "2026-03-03T10:34:31.006906+00:00", "level": "INFO", "logger": "eco_report_ai.reporting.report_writer", "message": "Markdown report written: reports\\latest_report.md (5585 bytes)"}
+{"timestamp": "2026-03-03T10:34:31.010695+00:00", "level": "INFO", "logger": "eco_report_ai.reporting.report_writer", "message": "JSON evidence written: reports\\latest_report.json"}
+{"timestamp": "2026-03-03T10:34:31.011225+00:00", "level": "INFO", "logger": "eco_report_ai.pipeline", "message": "============================================================"}
+{"timestamp": "2026-03-03T10:34:31.011586+00:00", "level": "INFO", "logger": "eco_report_ai.pipeline", "message": "Pipeline complete!"}
+{"timestamp": "2026-03-03T10:34:31.011961+00:00", "level": "INFO", "logger": "eco_report_ai.pipeline", "message": "  Report : reports\\latest_report.md"}
+{"timestamp": "2026-03-03T10:34:31.012501+00:00", "level": "INFO", "logger": "eco_report_ai.pipeline", "message": "  JSON   : reports\\latest_report.json"}
+{"timestamp": "2026-03-03T10:34:31.012879+00:00", "level": "INFO", "logger": "eco_report_ai.pipeline", "message": "============================================================"}
