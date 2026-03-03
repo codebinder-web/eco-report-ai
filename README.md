@@ -1,4 +1,4 @@
-[README (1).md](https://github.com/user-attachments/files/25711966/README.1.md)[Uploading README (1).# EcoReport AI
+# EcoReport AI
 
 > **Production-grade macroeconomic forecasting and automated report generation.**  
 > Combines classical econometrics, machine learning, and deep learning with constrained generative AI — running end-to-end without any API keys.
